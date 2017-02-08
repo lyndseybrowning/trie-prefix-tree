@@ -1,0 +1,12 @@
+{
+  "parser": "babel-eslint",
+  "env": {
+    "jest": true
+  },
+  "extends": "airbnb",
+  "rules": {
+    "semi": ["error", "never"],
+    "import/named": "error",
+    "import/default": "error"
+  }
+}
