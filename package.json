@@ -4,6 +4,7 @@
   "description": "Create and modify trie prefix structures and extract word lists.",
   "main": "src/index.js",
   "scripts": {
+    "dev": "babel-node src/testing.js",
     "lint": "eslint src",
     "jest": "jest",
     "jest:coverage": "jest --coverage",
