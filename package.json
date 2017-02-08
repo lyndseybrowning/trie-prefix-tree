@@ -1,7 +1,7 @@
 {
-  "name": "trie-word-search",
+  "name": "trie-prefix",
   "version": "1.0.0",
-  "description": "Create, modify and extract lists in Trie format",
+  "description": "Create and modify trie prefix structures and extract word lists.",
   "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
