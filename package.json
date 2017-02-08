@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/lyndseybrowning/trie-word-search.git"
+    "url": "git+https://github.com/lyndseybrowning/trie-prefix"
   },
   "keywords": [
     "javascript",
@@ -18,7 +18,7 @@
   "author": "Lyndsey Browning <lbrowning86@gmail.com> (http://lyndseyb.co.uk/)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/lyndseybrowning/trie-word-search/issues"
+    "url": "https://github.com/lyndseybrowning/trie-prefix/issues"
   },
-  "homepage": "https://github.com/lyndseybrowning/trie-word-search#readme"
+  "homepage": "https://github.com/lyndseybrowning/trie-prefix#readme"
 }
