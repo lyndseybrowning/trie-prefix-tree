@@ -11,4 +11,15 @@ describe('Trie', () => {
       expect(error).toEqual(expected);
     }
   });
+
+  test('return methods', () => {
+    const data = trie(['dog', 'cat']);
+
+    expect(data.get).toBeDefined();
+    expect(data.addNode).toBeDefined();
+    expect(data.deleteNode).toBeDefined();
+    expect(data.prefixSearch).toBeDefined();
+    expect(data.countPrefix).toBeDefined();
+    expect(data.contains).toBeDefined();
+  });
 });
