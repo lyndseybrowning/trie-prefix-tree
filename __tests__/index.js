@@ -23,3 +23,32 @@ describe('Trie', () => {
     expect(data.contains).toBeDefined();
   });
 });
+
+describe('Retrieving the Trie', () => {
+  it('returns a trie object structure', () => {
+    const input = ['dog', 'dogs', 'donut'];
+    const data = trie(input);
+    const actual = data.get();
+    const expected = {
+      d: {
+        o: {
+          g: {
+            $: 1,
+            s: {
+              $: 1
+            }
+          },
+          n: {
+            u: {
+              t: {
+                $: 1
+              }
+            }
+          }
+        }
+      }
+    };
+
+    expect(actual).toEqual(expected);
+  });
+});

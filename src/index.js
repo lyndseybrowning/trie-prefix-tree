@@ -1,12 +1,17 @@
+import create from './create';
+
 export default function trie(input) {
   if(!Array.isArray(input)) {
     throw(`Expected parameter Array, received ${typeof input}`);
   }
 
-  const data = [...input];
+  const data = create([...input]);
 
   return {
-    get() {},
+    get() {
+      return data;
+    },
+
     addNode() {},
     deleteNode() {},
     prefixSearch() {},
