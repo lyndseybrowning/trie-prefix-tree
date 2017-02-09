@@ -40,7 +40,7 @@
     "no-loop-func": 2,
     "no-new-object": 2,
     "no-new-func": 2,
-    "no-param-reassign": 2,
+    "no-param-reassign": 1,
     "no-plusplus": [2, { "allowForLoopAfterthoughts": true }],
     "no-undef": 2,
     "no-underscore-dangle": 2,
