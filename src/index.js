@@ -1,4 +1,5 @@
 import create from './create';
+import addBranch from './addBranch';
 
 export default function trie(input) {
   if(!Array.isArray(input)) {
@@ -12,7 +13,8 @@ export default function trie(input) {
       return data;
     },
 
-    addBranch() {},
+    addBranch: addBranch.bind(null, data),
+
     deleteBranch() {},
     prefixSearch() {},
     countPrefix() {},
