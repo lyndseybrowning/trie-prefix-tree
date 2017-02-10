@@ -16,8 +16,8 @@ describe('Trie', () => {
     const data = trie(['dog', 'cat']);
 
     expect(data.get).toBeDefined();
-    expect(data.addNode).toBeDefined();
-    expect(data.deleteNode).toBeDefined();
+    expect(data.addBranch).toBeDefined();
+    expect(data.deleteBranch).toBeDefined();
     expect(data.prefixSearch).toBeDefined();
     expect(data.countPrefix).toBeDefined();
     expect(data.contains).toBeDefined();

@@ -12,8 +12,8 @@ export default function trie(input) {
       return data;
     },
 
-    addNode() {},
-    deleteNode() {},
+    addBranch() {},
+    deleteBranch() {},
     prefixSearch() {},
     countPrefix() {},
     contains() {}
