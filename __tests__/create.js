@@ -4,10 +4,12 @@ describe('Creating the Trie', () => {
   it('throws when the first argument is not an array', () => {
     const input = '';
     const expected = `Expected parameter Array, received ${typeof input}`;
-
-    expect(() => {
+    
+    try {
       create(input);
-    }).toThrow(expected);
+    } catch(error) {
+      expect(error).toEqual(expected);
+    }
   });
 
   it('returns a Trie object structure converted to lowercase', () => {
