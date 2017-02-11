@@ -1,4 +1,5 @@
 import create from './create';
+import append from './append';
 
 export default function(input) {
   if(!Array.isArray(input)) {
@@ -23,8 +24,12 @@ export default function(input) {
         throw(`Expected parameter string, received ${typeof word}`);
       }
 
-      const input = word.toLowerCase().split('');
-      
+      word
+        .toLowerCase()
+        .split('')
+        .reduce((nodes, letter, index, array) => {
+          return append(nodes, letter, index, array);
+        }, trie);
 
       return this;
     },
