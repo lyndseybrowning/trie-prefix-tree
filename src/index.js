@@ -28,10 +28,8 @@ export default function(input) {
         return append(...params);
       };
 
-      word
-        .toLowerCase()
-        .split('')
-        .reduce(reducer, trie);
+      const input = word.toLowerCase().split('');
+      input.reduce(reducer, trie);
 
       return this;
     },
@@ -42,6 +40,21 @@ export default function(input) {
     removeWord(word) {
       if(typeof word !== 'string' || word === '') {
         throw(`Expected parameter string, received ${typeof word}`);
+      }
+
+      let current = trie;
+
+      const input = word.toLowerCase().split('');
+      const found = input.every((letter, index) => {
+        if(!current[letter]) {
+          return false;
+        }
+        current = current[letter];
+        return true;
+      });
+
+      if(found) {
+        delete trie[input[0]];
       }
 
       return this;
