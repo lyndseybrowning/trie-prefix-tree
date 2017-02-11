@@ -15,21 +15,23 @@ describe('Trie', () => {
   test('return methods', () => {
     const data = trie(['dog', 'cat']);
 
-    expect(data.get).toBeDefined();
-    expect(data.addBranch).toBeDefined();
-    expect(data.deleteBranch).toBeDefined();
-    expect(data.prefixSearch).toBeDefined();
+    expect(data.dump).toBeDefined();
+    expect(data.addWord).toBeDefined();
+    expect(data.removeWord).toBeDefined();
+    expect(data.isPrefix).toBeDefined();
     expect(data.countPrefix).toBeDefined();
-    expect(data.contains).toBeDefined();
+    expect(data.getPrefix).toBeDefined();
+    expect(data.getWords).toBeDefined();
+    expect(data.solveWords).toBeDefined();
+    expect(data.hasWord).toBeDefined();
   });
 });
 
 describe('Retrieving the Trie', () => {
-  it('returns a trie object structure', () => {
+  it('returns a string representation of the trie object structure', () => {
     const input = ['dog', 'dogs', 'donut'];
-    const data = trie(input);
-    const actual = data.get();
-    const expected = {
+    const actual = trie(input).dump();
+    const expected = JSON.stringify({
       d: {
         o: {
           g: {
@@ -47,7 +49,7 @@ describe('Retrieving the Trie', () => {
           }
         }
       }
-    };
+    });
 
     expect(actual).toEqual(expected);
   });

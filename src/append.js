@@ -1,10 +1,10 @@
-export default function append(branch, item, index, array) {
-  branch[item] = branch[item] || {};
-  branch = branch[item];
+export default function append(trie, letter, index, array) {
+  trie[letter] = trie[letter] || {};
+  trie = trie[letter];
 
-  if(array.lastIndexOf(item) === array.length - 1) {
-    branch.$ = 1;
+  if(array.lastIndexOf(letter) === array.length - 1) {
+    trie.$ = 1;
   }
 
-  return branch;
+  return trie;
 };
