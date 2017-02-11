@@ -24,12 +24,14 @@ export default function(input) {
         throw(`Expected parameter string, received ${typeof word}`);
       }
 
+      const reducer = (acc, letter, index, array) => {
+        return append(acc, letter, index, array);
+      };
+
       word
         .toLowerCase()
         .split('')
-        .reduce((nodes, letter, index, array) => {
-          return append(nodes, letter, index, array);
-        }, trie);
+        .reduce(reducer, trie);
 
       return this;
     },
@@ -37,7 +39,13 @@ export default function(input) {
     /**
      * Remove an existing word from the trie
      */
-    removeWord() {},
+    removeWord(word) {
+      if(typeof word !== 'string' || word === '') {
+        throw(`Expected parameter string, received ${typeof word}`);
+      }
+
+      return this;
+    },
 
     /**
      * Check a prefix is valid
