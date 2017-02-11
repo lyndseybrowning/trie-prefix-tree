@@ -17,6 +17,19 @@ describe('Adding to the Trie', () => {
 
   it('adds a new branch and returns the tree without mutating the original Trie', () => {
     const actual = addBranch(input, 'dogs');
+
     expect(input).not.toEqual(actual);
+    expect(actual).toEqual({
+      d: {
+        o: {
+          g: {
+            $: 1,
+            s: {
+              $: 1
+            }
+          }
+        }
+      }
+    });
   });
 });

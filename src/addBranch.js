@@ -1,15 +1,14 @@
 import append from './append';
+import utils from './utils';
 
-export default function addBranch(tree, branch) {
+export default function addBranch(branches, branch) {
   if(typeof branch !== 'string' || branch === '') {
     throw('branch must be a string');
   }
 
-  const trie = { ...tree };
-  const added = branch
-    .toLowerCase()
-    .split('')
-    .reduce(append, trie);
+  const tree = utils.objectCopy(branches);
+  const input = branch.toLowerCase().split('');
+  const output = input.reduce(append, tree);
 
-  return added;
+  return tree;
 };
