@@ -24,8 +24,8 @@ export default function(input) {
         throw(`Expected parameter string, received ${typeof word}`);
       }
 
-      const reducer = (acc, letter, index, array) => {
-        return append(acc, letter, index, array);
+      const reducer = (...params) => {
+        return append(...params);
       };
 
       word
