@@ -2,7 +2,7 @@ import trie from '../src/index';
 
 test('Removing a word from the trie', () => {
   const input = ['dog', 'dogs', 'plane'];
-  const actual = trie(input).removeWord('plane');
+  const actual = trie(input);
   const expected = JSON.stringify({
     d: {
       o: {
@@ -17,5 +17,6 @@ test('Removing a word from the trie', () => {
   });
 
   expect(() => trie(input).removeWord()).toThrow();
-  expect(actual.dump()).toEqual(expected);
+  expect(actual.removeWord('plane').dump()).toEqual(expected);
+  expect(actual.removeWord('nonword').dump()).toEqual(actual.dump());
 });
