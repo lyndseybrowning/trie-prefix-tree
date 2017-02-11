@@ -18,6 +18,6 @@ export default function trie(input) {
     deleteBranch() {},
     prefixSearch() {},
     countPrefix() {},
-    contains() {}
+    contains() {},
   };
 };
