@@ -1,6 +1,7 @@
 import create from './create';
 import append from './append';
-import contains from './contains';
+import checkPrefix from './checkPrefix';
+import recursePrefix from './recursePrefix';
 
 export default function(input) {
   if(!Array.isArray(input)) {
@@ -43,7 +44,7 @@ export default function(input) {
         throw(`Expected parameter string, received ${typeof word}`);
       }
 
-      const found = contains(trie, word);
+      const { found } = checkPrefix(trie, word);
 
       if(found) {
         delete trie[word[0]];
@@ -61,19 +62,27 @@ export default function(input) {
         throw(`Expected string prefix, received ${typeof prefix}`);
       }
 
-      return contains(trie, prefix);
+      const { found } = checkPrefix(trie, prefix);
+
+      return found;
     },
 
     /**
     * Get a list of all words in the trie with the given prefix
     * @returns Array
     */
-    getPrefix() {
-      if(typeof prefix !== 'string' || prefix === '') {
-        throw(`Expected string prefix, received ${typeof prefix}`);
+    getPrefix(strPrefix) {
+      if(typeof strPrefix !== 'string' || strPrefix === '') {
+        throw(`Expected string prefix, received ${typeof strPrefix}`);
       }
 
+      if(!this.isPrefix(strPrefix)) {
+        return [];
+      }
 
+      const { node } = checkPrefix(trie, strPrefix);
+
+      return recursePrefix(node, strPrefix);
     },
 
     /**
