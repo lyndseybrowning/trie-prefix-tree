@@ -47,7 +47,7 @@ export default function(input) {
       const { found, node } = checkPrefix(trie, word);
 
       if(found) {
-        delete node.$;    
+        delete node.$;
       }
 
       return this;
@@ -89,9 +89,10 @@ export default function(input) {
     * Count the number of words with the given prefixSearch
     * @returns Number
     */
-    countPrefix() {
+    countPrefix(strPrefix) {
+      const prefixes = this.getPrefix(strPrefix);
 
-
+      return prefixes.length;
     },
 
     /**
