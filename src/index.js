@@ -2,6 +2,7 @@ import create from './create';
 import append from './append';
 import checkPrefix from './checkPrefix';
 import recursePrefix from './recursePrefix';
+import utils from './utils';
 
 export default function(input) {
   if(!Array.isArray(input)) {
@@ -15,7 +16,7 @@ export default function(input) {
      * Get a string representation of the trie
     */
     dump(spacer = 0) {
-      return JSON.stringify(trie, null, spacer);
+      return utils.stringify(trie, spacer);
     },
 
     /**
