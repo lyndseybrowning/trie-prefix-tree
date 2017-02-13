@@ -17,7 +17,7 @@ describe('Getting prefixes', () => {
 });
 
 test('Counting prefixes', () => {
-  expect(() => input.getPrefix()).toThrow();
+  expect(() => input.countPrefix()).toThrow();
   expect(input.countPrefix('a')).toEqual(5);
   expect(input.countPrefix('ba')).toEqual(2);
   expect(input.countPrefix('dog')).toEqual(0);
