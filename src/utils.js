@@ -6,10 +6,10 @@ export default {
     return JSON.parse(JSON.stringify(obj));
   },
 
-  stringify(obj) {
+  stringify(obj, spacer = 2) {
     if(typeof obj === 'undefined') {
       return '';
     }
-    return JSON.stringify(obj, null, 2);
+    return JSON.stringify(obj, null, spacer);
   },
 };
