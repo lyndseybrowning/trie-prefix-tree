@@ -99,7 +99,9 @@ export default function(input) {
     * Get all words in the trie
     * @returns Array
     */
-    getWords() {},
+    getWords() {
+      return recursePrefix(trie, '');
+    },
 
     /**
     * Get a list of words that can be made from the given letters
