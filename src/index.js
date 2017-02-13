@@ -43,19 +43,10 @@ export default function(input) {
         throw(`Expected parameter string, received ${typeof word}`);
       }
 
-      let current = trie;
-
-      const input = word.toLowerCase().split('');
-      const found = input.every((letter, index) => {
-        if(!current[letter]) {
-          return false;
-        }
-        current = current[letter];
-        return true;
-      });
+      const found = contains(trie, word);
 
       if(found) {
-        delete trie[input[0]];
+        delete trie[word[0]];
       }
 
       return this;
@@ -66,24 +57,33 @@ export default function(input) {
      * @returns Boolean
     */
     isPrefix(prefix) {
-      if(typeof prefix === 'undefined' || prefix === '') {
+      if(typeof prefix !== 'string' || prefix === '') {
         throw(`Expected string prefix, received ${typeof prefix}`);
       }
-      
+
       return contains(trie, prefix);
+    },
+
+    /**
+    * Get a list of all words in the trie with the given prefix
+    * @returns Array
+    */
+    getPrefix() {
+      if(typeof prefix !== 'string' || prefix === '') {
+        throw(`Expected string prefix, received ${typeof prefix}`);
+      }
+
+
     },
 
     /**
     * Count the number of words with the given prefixSearch
     * @returns Number
     */
-    countPrefix() {},
+    countPrefix() {
 
-    /**
-    * Get a list of all words in the trie with the given prefix
-    * @returns Array
-    */
-    getPrefix() {},
+
+    },
 
     /**
     * Get all words in the trie
