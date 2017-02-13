@@ -1,5 +1,6 @@
 import create from './create';
 import append from './append';
+import contains from './contains';
 
 export default function(input) {
   if(!Array.isArray(input)) {
@@ -64,7 +65,13 @@ export default function(input) {
      * Check a prefix is valid
      * @returns Boolean
     */
-    isPrefix() {},
+    isPrefix(prefix) {
+      if(typeof prefix === 'undefined' || prefix === '') {
+        throw(`Expected string prefix, received ${typeof prefix}`);
+      }
+      
+      return contains(trie, prefix);
+    },
 
     /**
     * Count the number of words with the given prefixSearch
