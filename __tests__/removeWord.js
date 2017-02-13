@@ -1,7 +1,7 @@
 import trie from '../src/index';
 
 test('Removing a word from the trie', () => {
-  const input = ['dog', 'dogs', 'plane'];
+  const input = ['dog', 'dogs', 'plane', 'planet'];
   const actual = trie(input);
   const expected = JSON.stringify({
     d: {
@@ -10,6 +10,19 @@ test('Removing a word from the trie', () => {
           $: 1,
           s: {
             $: 1
+          }
+        }
+      }
+    },
+    p: {
+      l: {
+        a: {
+          n: {
+            e: {
+              t: {
+                $: 1
+              }
+            }
           }
         }
       }

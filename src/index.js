@@ -44,10 +44,10 @@ export default function(input) {
         throw(`Expected parameter string, received ${typeof word}`);
       }
 
-      const { found } = checkPrefix(trie, word);
+      const { found, node } = checkPrefix(trie, word);
 
       if(found) {
-        delete trie[word[0]];
+        delete node.$;    
       }
 
       return this;
