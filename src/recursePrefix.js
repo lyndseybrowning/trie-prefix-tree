@@ -1,5 +1,3 @@
-import utils from './utils';
-
 export default function recursePrefix(node, prefix, prefixes = []) {
   let word = prefix;
 
