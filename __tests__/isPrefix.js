@@ -2,7 +2,6 @@ import trie from '../src/index';
 
 describe('Prefix checking', () => {
   const input = trie(['dog', 'cat', 'meow']);
-  const data = JSON.parse(input.dump());
 
   it('throws an error when the prefix is undefined', () => {
     expect(() => input.isPrefix()).toThrow();
