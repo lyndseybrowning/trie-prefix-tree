@@ -26,9 +26,13 @@ export default function(input) {
       if(typeof word !== 'string' || word === '') {
         throw(`Expected parameter string, received ${typeof word}`);
       }
-      
+
+      const reducer = (...params) => {
+        return append(...params);
+      };
+
       const input = word.toLowerCase().split('');
-      input.reduce(...params => append(...params), trie);
+      input.reduce(reducer, trie);
 
       return this;
     },
