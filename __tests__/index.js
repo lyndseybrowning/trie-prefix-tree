@@ -22,8 +22,9 @@ describe('Trie', () => {
     expect(data.countPrefix).toBeDefined();
     expect(data.getPrefix).toBeDefined();
     expect(data.getWords).toBeDefined();
-    expect(data.solveWords).toBeDefined();
     expect(data.hasWord).toBeDefined();
+    expect(data.getAnagrams).toBeDefined();
+    expect(data.getSubAnagrams).toBeDefined();
   });
 });
 

@@ -119,10 +119,16 @@ export default function(input) {
     },
 
     /**
-    * Get a list of words that can be made from the given letters
+    * Get a list of valid anagrams that can be made from the given letters
     * @returns Array
     */
-    solveWords() {},
+    getAnagrams() {},
+
+    /**
+    * Get a list of all sub-anagrams that can be made from the given letters
+    * @returns Array
+    */
+    getSubAnagrams() {},
 
   };
 };
