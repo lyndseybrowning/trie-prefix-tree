@@ -1,7 +1,7 @@
 import trie from '../src/index';
 
 describe('Finding valid anagrams from the Trie given a set of letters', () => {
-  const input = ['tea', 'car', 'tae', 'dog', 'eta', 'ate', 'eat'];
+  const input = ['tea', 'car', 'tae', 'dog', 'eta', 'ate', 'eat', 'blah'];
   const data = trie(input);
 
   it('throws an error when no letters are passed', () => {
@@ -17,6 +17,7 @@ describe('Finding valid anagrams from the Trie given a set of letters', () => {
     const expected = ['ate', 'eat', 'eta', 'tae', 'tea'];
 
     expect(actual).toEqual(expected);
+    expect(data.getAnagrams('gdo')).toEqual(['dog']);
   });
 
   it('returns an empty array when no permutations are found', () => {

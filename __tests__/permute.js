@@ -6,6 +6,6 @@ describe('string permutations', () => {
   });
 
   it('produces an array', () => {
-    expect(permute('abc', {})).toEqual([]);
+    expect(permute('abc', [])).toEqual([]);
   });
 });

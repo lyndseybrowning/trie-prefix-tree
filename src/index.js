@@ -6,6 +6,8 @@ import utils from './utils';
 import config from './config';
 import permute from './permute';
 
+const PERMS_MIN_LEN = 2;
+
 export default function(input) {
   if(!Array.isArray(input)) {
     throw(`Expected parameter Array, received ${typeof input}`);
@@ -115,9 +117,9 @@ export default function(input) {
         throw(`Expected string word, received ${typeof word}`);
       }
 
-      const { node } = checkPrefix(trie, word);
+      const data = this.getWords();
 
-      return node[config.END_WORD] === 1;
+      return data.includes(word.toLowerCase());
     },
 
     /**
@@ -129,20 +131,27 @@ export default function(input) {
         throw(`Expected string letters, received ${typeof letters}`);
       }
 
-      const minLength = 2;
-
-      if(letters.length < minLength) {
+      if(letters.length < PERMS_MIN_LEN) {
         throw(`getAnagrams expects at least two letters`);
       }
 
-      return permute(letters, trie);
+      return permute(letters, this.getWords());
     },
 
     /**
     * Get a list of all sub-anagrams that can be made from the given letters
     * @returns Array
     */
-    getSubAnagrams() {},
+    getSubAnagrams(letters) {
+      if(typeof letters !== 'string') {
+        throw(`Expected string letters, received ${typeof letters}`);
+      }
 
+      if(letters.length < PERMS_MIN_LEN) {
+        throw(`getSubAnagrams expects at least two letters`);
+      }
+
+      return permute(letters, this.getWords(), true);
+    },
   };
 };

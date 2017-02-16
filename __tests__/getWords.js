@@ -9,7 +9,7 @@ describe('Retrieving a full list of words in the trie', () => {
     expect(actual).toEqual(expected);
   });
 
-  test('adding new words', () => {
+  test('adding and removing words', () => {
     const input = ['one',  'two', 'three'];
     const data = trie(input).addWord('four').removeWord('one');
     const actual = data.getWords();

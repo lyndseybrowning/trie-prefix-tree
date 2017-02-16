@@ -1,7 +1,7 @@
 import trie from '../src/index';
 
 describe('validating a word exists', () => {
-  const input = ['dog', 'cat', 'lion', 'tiger'];
+  const input = ['dog', 'cat', 'lion', 'tiger', 'carse', 'car', 'scar'];
   const data = trie(input);
 
   it('throws an error when a word is not passed', () => {

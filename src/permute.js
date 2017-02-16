@@ -1,30 +1,33 @@
-import checkPrefix from './checkPrefix';
+import trie from './index';
 import config from './config';
 
-export default (letters, trie) => {
-  if(typeof letters !== 'string') {
+export default (source, dictionary, subAnagramSearch = false) => {
+  if(typeof source !== 'string') {
     throw('Expected string source');
   }
 
+  const data = trie(dictionary);
   const words = [];
+
   const permute = (source, prefix = '') => {
     source = source.toLowerCase();
 
-    const word = prefix + source;
     const letters = source.split('');
-    const isWord = checkPrefix(trie, word).node[config.END_WORD] === 1;
+    const word = prefix + source;
+    const wordType = subAnagramSearch ? prefix : word;
+    const isValid = data.hasWord(wordType);
 
-    if(isWord && !words.includes(word)) {
-      words.push(word);
+    if(isValid && !words.includes(wordType)) {
+      words.push(wordType);
     }
 
     letters.forEach((letter, index) => {
       const remainder = source.substring(0, index) + source.substring(index + 1);
-      permute(remainder, prefix + letter, words);
+      permute(remainder, prefix + letter);
     });
 
     return words.sort();
   };
 
-  return permute(letters);
+  return permute(source);
 };
