@@ -3,6 +3,7 @@ import append from './append';
 import checkPrefix from './checkPrefix';
 import recursePrefix from './recursePrefix';
 import utils from './utils';
+import config from './config';
 
 export default function(input) {
   if(!Array.isArray(input)) {
@@ -48,7 +49,7 @@ export default function(input) {
       const { found, node } = checkPrefix(trie, word);
 
       if(found) {
-        delete node.$;
+        delete node[config.END_WORD];
       }
 
       return this;
@@ -115,7 +116,7 @@ export default function(input) {
 
       const { node } = checkPrefix(trie, word);
 
-      return node.$ === 1;
+      return node[config.END_WORD] === 1;
     },
 
     /**
