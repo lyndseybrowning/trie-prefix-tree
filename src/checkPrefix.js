@@ -11,6 +11,6 @@ export default function contains(node, prefix) {
 
   return {
     found,
-    node
+    node,
   };
 };
