@@ -4,6 +4,7 @@ import checkPrefix from './checkPrefix';
 import recursePrefix from './recursePrefix';
 import utils from './utils';
 import config from './config';
+import permute from './permute';
 
 export default function(input) {
   if(!Array.isArray(input)) {
@@ -123,7 +124,19 @@ export default function(input) {
     * Get a list of valid anagrams that can be made from the given letters
     * @returns Array
     */
-    getAnagrams() {},
+    getAnagrams(letters) {
+      if(typeof letters !== 'string') {
+        throw(`Expected string letters, received ${typeof letters}`);
+      }
+
+      const minLength = 2;
+
+      if(letters.length < minLength) {
+        throw(`getAnagrams expects at least two letters`);
+      }
+
+      return permute(letters, trie);
+    },
 
     /**
     * Get a list of all sub-anagrams that can be made from the given letters
