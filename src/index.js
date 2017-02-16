@@ -105,16 +105,24 @@ export default function(input) {
     },
 
     /**
+    * Check the existence of a word in the trie
+    * @returns Boolean
+    */
+    hasWord(word) {
+      if(typeof word !== 'string') {
+        throw(`Expected string word, received ${typeof word}`);
+      }
+
+      const { node } = checkPrefix(trie, word);
+
+      return node.$ === 1;
+    },
+
+    /**
     * Get a list of words that can be made from the given letters
     * @returns Array
     */
     solveWords() {},
 
-
-    /**
-    * Check the existence of a word in the trie
-    * @returns Boolean
-    */
-    hasWord() {}
   };
 };
