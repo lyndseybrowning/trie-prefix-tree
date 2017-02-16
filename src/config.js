@@ -1,3 +1,3 @@
 export default {
-  TRIE_END_WORD: '$'
+  TRIE_END_WORD: '$',
 };
