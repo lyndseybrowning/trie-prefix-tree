@@ -1,16 +1,16 @@
 import utils from './utils';
 
-export default function checkPrefix(node, prefix) {
+export default function checkPrefix(prefixNode, prefix) {
   const input = prefix.toLowerCase().split('');
-  const found = input.every((letter, index) => {
-    if(!node[letter]) {
+  const prefixFound = input.every((letter, index) => {
+    if(!prefixNode[letter]) {
       return false;
     }
-    return node = node[letter];
+    return prefixNode = prefixNode[letter];
   });
 
   return {
-    found,
-    node,
+    prefixFound,
+    prefixNode,
   };
 };

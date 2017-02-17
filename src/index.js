@@ -49,10 +49,10 @@ export default function(input) {
         throw(`Expected parameter string, received ${typeof word}`);
       }
 
-      const { found, node } = checkPrefix(trie, word);
+      const { prefixFound, prefixNode } = checkPrefix(trie, word);
 
-      if(found) {
-        delete node[config.END_WORD];
+      if(prefixFound) {
+        delete prefixNode[config.END_WORD];
       }
 
       return this;
@@ -67,9 +67,9 @@ export default function(input) {
         throw(`Expected string prefix, received ${typeof prefix}`);
       }
 
-      const { found } = checkPrefix(trie, prefix);
+      const { prefixFound } = checkPrefix(trie, prefix);
 
-      return found;
+      return prefixFound;
     },
 
     /**
@@ -85,9 +85,9 @@ export default function(input) {
         return [];
       }
 
-      const { node } = checkPrefix(trie, strPrefix);
+      const { prefixNode } = checkPrefix(trie, strPrefix);
 
-      return recursePrefix(node, strPrefix);
+      return recursePrefix(prefixNode, strPrefix);
     },
 
     /**
@@ -117,10 +117,10 @@ export default function(input) {
         throw(`Expected string word, received ${typeof word}`);
       }
 
-      const { found, node } = checkPrefix(trie, word);
+      const { prefixFound, prefixNode } = checkPrefix(trie, word);
 
-			if(found) {
-      	return node[config.END_WORD] === 1;
+			if(prefixFound) {
+      	return prefixNode[config.END_WORD] === 1;
       }
 
       return false;
