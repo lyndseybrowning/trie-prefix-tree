@@ -1,4 +1,4 @@
 export default {
   END_WORD: '$',
-  PERMS_MIN_LEN: 2
+  PERMS_MIN_LEN: 2,
 };
