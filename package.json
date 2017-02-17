@@ -1,6 +1,6 @@
 {
   "name": "trie-prefix-tree",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Create and modify trie prefix structures, extract word lists including anagrams and sub-anagrams",
   "main": "dist/index.js",
   "scripts": {
@@ -20,6 +20,10 @@
     "javascript",
     "trie",
     "words"
+  ],
+  "files": [
+    "dist",
+    "README.md"
   ],
   "author": "Lyndsey Browning <lbrowning86@gmail.com> (http://lyndseyb.co.uk/)",
   "license": "MIT",
