@@ -7,7 +7,7 @@
     "build": "babel --out-dir dist src",
     "prebuild": "rimraf dist",
     "lint": "eslint src",
-    "jest": "jest --compilers js:babel-register",
+    "jest": "jest",
     "jest:coverage": "jest --coverage",
     "jest:watch": "jest --watch",
     "test": "npm run jest",
