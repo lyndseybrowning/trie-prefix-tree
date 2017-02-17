@@ -6,7 +6,7 @@ import utils from './utils';
 import config from './config';
 import permutations from './permutations';
 
-const PERMS_MIN_LEN = 2;
+const PERMS_MIN_LEN = config.PERMS_MIN_LEN;
 
 export default function(input) {
   if(!Array.isArray(input)) {
