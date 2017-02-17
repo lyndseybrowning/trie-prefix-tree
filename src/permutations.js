@@ -14,10 +14,8 @@ export default function permutations(letters, trie, opts = {
     const wordFound = words.includes(prefix);
     const endWordFound = node[config.END_WORD] === 1;
 
-    if(opts.type === 'anagram') {
-      if(wordIsEmpty && endWordFound && !wordFound) {
-        words.push(prefix);
-      }
+    if(wordIsEmpty && endWordFound && !wordFound) {
+      words.push(prefix);
     }
 
     for(let i = 0, len = word.length; i < len; i++) {

@@ -19,6 +19,15 @@ describe('Finding valid sub-anagrams from the Trie given a set of letters', () =
     expect(actual).toEqual(expected);
   });
 
+  it('retrieves anagrams and sub-anagrams', () => {
+    const input = ['cat', 'cats'];
+    const data = trie(input);
+    const actual = data.getSubAnagrams('cats');
+    const expected = input;
+
+    expect(actual).toEqual(expected);
+  });
+
   it('returns an empty array when no permutations are found', () => {
     const actual = data.getSubAnagrams('abcd');
     const expected = [];
