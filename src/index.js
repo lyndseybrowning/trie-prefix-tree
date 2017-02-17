@@ -117,9 +117,13 @@ export default function(input) {
         throw(`Expected string word, received ${typeof word}`);
       }
 
-      const data = this.getWords();
+      const { found, node } = checkPrefix(trie, word);
 
-      return data.includes(word.toLowerCase());
+			if(found) {
+      	return node[config.END_WORD] === 1;
+      }
+
+      return false;
     },
 
     /**
