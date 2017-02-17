@@ -1,7 +1,7 @@
 {
   "name": "trie-prefix",
   "version": "1.0.0",
-  "description": "Create and modify trie prefix structures and extract word lists.",
+  "description": "Create and modify trie prefix structures, extract word lists including anagrams and sub-anagrams",
   "main": "dist/index.js",
   "scripts": {
     "build": "babel --out-dir dist src",
