@@ -7,10 +7,10 @@
     "build": "babel --out-dir dist src",
     "prebuild": "rimraf dist",
     "lint": "eslint src",
-    "jest": "jest",
-    "jest:coverage": "jest --coverage",
-    "jest:watch": "jest --watch",
-    "test": "npm run jest",
+    "report-coverage": "cat ./coverage/lcov.info | codecov",
+    "test": "jest",
+    "test:coverage": "jest --coverage",
+    "test:watch": "jest --watch",
     "commit": "git-cz",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
@@ -46,12 +46,16 @@
     "rimraf": "^2.5.4",
     "semantic-release": "^6.3.2"
   },
+  "jest": {
+    "coverageDirectory": "./coverage",
+    "collectCoverage": true
+  },
   "czConfig": {
     "path": "node_modules/cz-conventional-changelog"
   },
   "config": {
     "ghooks": {
-      "pre-commit": "npm run lint && npm run test"
+      "pre-commit": "npm run lint && npm run test && npm run test:coverage"
     }
   }
 }
