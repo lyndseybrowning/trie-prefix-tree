@@ -1,1 +1,1 @@
-# Trie
+# Trie Prefix Tree
