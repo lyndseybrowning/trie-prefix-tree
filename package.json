@@ -7,10 +7,10 @@
     "build": "babel --out-dir dist src",
     "prebuild": "rimraf dist",
     "lint": "eslint src",
-    "jest": "jest",
+    "jest": "jest --compilers js:babel-register",
     "jest:coverage": "jest --coverage",
     "jest:watch": "jest --watch",
-    "test": "npm run lint && npm run jest",
+    "test": "npm run jest",
     "commit": "git-cz",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
@@ -51,7 +51,7 @@
   },
   "config": {
     "ghooks": {
-      "pre-commit": "npm run test"
+      "pre-commit": "npm run lint && npm run test"
     }
   }
 }
