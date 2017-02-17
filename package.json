@@ -1,6 +1,6 @@
 {
   "name": "trie-prefix-tree",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Create and modify trie prefix structures, extract word lists including anagrams and sub-anagrams",
   "main": "dist/index.js",
   "scripts": {
