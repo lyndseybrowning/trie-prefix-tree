@@ -4,7 +4,7 @@ import checkPrefix from './checkPrefix';
 import recursePrefix from './recursePrefix';
 import utils from './utils';
 import config from './config';
-import permute from './permute';
+import permutations from './permutations';
 
 const PERMS_MIN_LEN = 2;
 
@@ -132,14 +132,16 @@ export default function(input) {
     */
     getAnagrams(letters) {
       if(typeof letters !== 'string') {
-        throw(`Expected string letters, received ${typeof letters}`);
+         throw(`Anagrams expected string letters, received ${typeof letters}`);
       }
 
       if(letters.length < PERMS_MIN_LEN) {
         throw(`getAnagrams expects at least two letters`);
       }
 
-      return permute(letters, this.getWords());
+      return permutations(letters, trie, {
+        type: 'anagram'
+      });
     },
 
     /**
@@ -155,7 +157,9 @@ export default function(input) {
         throw(`getSubAnagrams expects at least two letters`);
       }
 
-      return permute(letters, this.getWords(), true);
+      return permutations(letters, trie, {
+        type: 'sub-anagram'
+      });
     },
   };
 };
