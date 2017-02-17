@@ -3,6 +3,10 @@ import config from './config';
 export default function permutations(letters, trie, opts = {
   type: 'anagram'
 }) {
+  
+  if(typeof letters !== 'string') {
+    throw(`Permutations expects string letters, received ${typeof letters}`);
+  }
 
   const words = [];
 
