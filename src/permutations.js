@@ -1,9 +1,8 @@
 import config from './config';
 
 export default function permutations(letters, trie, opts = {
-  type: 'anagram'
+  type: 'anagram',
 }) {
-  
   if(typeof letters !== 'string') {
     throw(`Permutations expects string letters, received ${typeof letters}`);
   }
@@ -30,13 +29,14 @@ export default function permutations(letters, trie, opts = {
         }
       }
 
-			if(node[letter]) {
-        const remaining = word.substring(0, i) + word.substring(i + 1, word.length);
+      if(node[letter]) {
+        const remaining = word.substring(0, i) + word.substring(i + 1, len);
         permute(remaining, node[letter], prefix + letter, words);
       }
     }
-  	return words.sort();
-	};
+
+    return words.sort();
+  };
 
   return permute(letters, trie);
 };

@@ -119,8 +119,8 @@ export default function(input) {
 
       const { prefixFound, prefixNode } = checkPrefix(trie, word);
 
-			if(prefixFound) {
-      	return prefixNode[config.END_WORD] === 1;
+      if(prefixFound) {
+        return prefixNode[config.END_WORD] === 1;
       }
 
       return false;
@@ -132,15 +132,15 @@ export default function(input) {
     */
     getAnagrams(letters) {
       if(typeof letters !== 'string') {
-         throw(`Anagrams expected string letters, received ${typeof letters}`);
+        throw(`Anagrams expected string letters, received ${typeof letters}`);
       }
 
       if(letters.length < PERMS_MIN_LEN) {
-        throw(`getAnagrams expects at least two letters`);
+        throw(`getAnagrams expects at least ${PERMS_MIN_LEN} letters`);
       }
 
       return permutations(letters, trie, {
-        type: 'anagram'
+        type: 'anagram',
       });
     },
 
@@ -154,11 +154,11 @@ export default function(input) {
       }
 
       if(letters.length < PERMS_MIN_LEN) {
-        throw(`getSubAnagrams expects at least two letters`);
+        throw(`getSubAnagrams expects at least ${PERMS_MIN_LEN} letters`);
       }
 
       return permutations(letters, trie, {
-        type: 'sub-anagram'
+        type: 'sub-anagram',
       });
     },
   };
