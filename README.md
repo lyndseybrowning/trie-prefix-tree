@@ -59,51 +59,78 @@ npm install trie-prefix-tree --save
 
 To create a new Trie:
 
-```
+```javascript
 var trie = require('trie-prefix-tree');
 
-// es6
+// using ES2015 Modules
 import trie from 'trie-prefix-tree';
 ```
 
 Instantiate the Trie:
 
-```
-var myTrie = trie(['cat', 'cats', 'dogs', 'elephant', 'tiger'];
+```javascript
+var myTrie = trie(['cat', 'cats', 'dogs', 'elephant', 'tiger']);
 ```
 
-Trie options:
+Trie functionality:
 
+```javascript
+// retrieve a stringified dump of the Trie object
+myTrie.dump(); // { c: { a: { t: $: 1 }, s: 1 ... }}
+
+// optionally pass in spacer parameter to format the output string
+myTrie.dump(2); // equivalent of JSON.stringify(obj, null, 2);
 ```
-// retrive a dump of the Trie object
-myTrie.dump();
 
+```javascript
 // add a new word to the Trie
 myTrie.addWord('lion');
+```
 
+```javascript
 // remove an existing word from the Trie
 myTrie.removeWord('dogs');
+```
 
+Adding and removing words can be chained:
+
+```javascript
+myTrie.addWord('hello').removeWord('hello');
+```
+
+```javascript
 // check if a prefix exists:
 myTrie.isPrefix('do'); // true
 myTrie.isPrefix('z'); // false
+```
 
+```javascript
 // count prefixes
 myTrie.countPrefix('c'); // 2
+```
 
+```javascript
 // get an array of words with the passed in prefix
 myTrie.getPrefix('c'); // ['cat', 'cats']
+```
 
+```javascript
 // retrieve a full list of words in the Trie
 myTrie.getWords(); // ['cat', 'cats', 'elephant', 'lion', 'tiger'];
+```
 
+```javascript
 // check if a word exists in the Trie
 myTrie.hasword('elephant'); // true
 myTrie.hasWord('zoo'); // false
+```
 
+```javascript
 // generate a list of valid anagrams from the given letters
 myTrie.getAnagrams('act'); // ['cat'];
+```
 
+```javascript
 // generate a list of valid sub-anagrams from the given letters
 myTrie.getSubAnagrams('ctalion'); ['cat', 'cats', 'lion'];
 ```
