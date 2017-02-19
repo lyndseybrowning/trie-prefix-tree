@@ -13,7 +13,7 @@ This is a [Trie](https://en.wikipedia.org/wiki/Trie) implementation written in J
 
 A Trie (also known as a prefix-tree) is a data structure for storing strings in a tree. Each branch in the tree represents a single character which allows for fast and efficient depth-first searching. Let's say we have a dictionary with the words: CAR, CAT and CURL. We can visualise the trie like this:
 
-![trie data structure]("/trie.jpg")
+![trie data structure](/trie.jpg)
 
 ## Installation
 
@@ -40,13 +40,13 @@ npm run lint
 Run tests in watch mode:
 
 ```
-npm run test:watch
+npm run test-watch
 ```
 
 Get code coverage report:
 
 ```
-npm run test:coverage
+npm run test-coverage
 ```
 
 ## How to Use
@@ -61,6 +61,9 @@ To create a new Trie:
 
 ```
 var trie = require('trie-prefix-tree');
+
+// es6
+import trie from 'trie-prefix-tree';
 ```
 
 Instantiate the Trie:
