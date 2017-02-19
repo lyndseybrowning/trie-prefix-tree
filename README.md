@@ -23,7 +23,7 @@ Pull down dependencies:
 npm install
 ```
 
-This project uses [Jest](https://facebook.github.io/jest/) for unit testing and [ESLint] for linting.
+This project uses [Jest](https://facebook.github.io/jest/) for unit testing and [ESLint](http://eslint.org/) for linting.
 
 To run combined linting & unit tests:
 
@@ -98,6 +98,8 @@ Adding and removing words can be chained:
 myTrie.addWord('hello').removeWord('hello');
 ```
 
+Prefix searching:
+
 ```javascript
 // check if a prefix exists:
 myTrie.isPrefix('do'); // true
@@ -113,6 +115,8 @@ myTrie.countPrefix('c'); // 2
 // get an array of words with the passed in prefix
 myTrie.getPrefix('c'); // ['cat', 'cats']
 ```
+
+Other:
 
 ```javascript
 // retrieve a full list of words in the Trie
