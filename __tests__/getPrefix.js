@@ -3,16 +3,24 @@ import trie from '../src/index';
 const input = trie(['aah', 'aahs', 'aardvark', 'aalii', 'aal', 'baa', 'baal']);
 
 describe('Getting prefixes', () => {
-  it('throws an error when the given parameter is not a string', () => {
+  it('throws an error when the first parameter is not a string', () => {
     expect(() => input.getPrefix()).toThrow();
+  });
+
+  it('errors when the sort parameter is not boolean', () => {
+    expect(() => input.getPrefix('aah', 123)).toThrow();
   });
 
   it('returns an empty array when the given prefix is not found', () => {
     expect(input.getPrefix('dog')).toEqual([]);
   });
 
-  it('returns a sorted array of words in the trie with the given prefix', () => {
+  it('returns a sorted array of words when sort is set to true', () => {
     expect(input.getPrefix('aal')).toEqual(['aal', 'aalii']);
+  });
+
+  it('returns an unsorted array of words when sort is set to false', () => {
+    expect(input.getPrefix('aal', false)).toEqual(['aalii', 'aal']);
   });
 });
 

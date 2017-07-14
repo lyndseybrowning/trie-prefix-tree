@@ -76,9 +76,13 @@ export default function(input) {
     * Get a list of all words in the trie with the given prefix
     * @returns Array
     */
-    getPrefix(strPrefix) {
+    getPrefix(strPrefix, sorted = true) {
       if(typeof strPrefix !== 'string' || strPrefix === '') {
         throw(`Expected string prefix, received ${typeof strPrefix}`);
+      }
+
+      if(typeof sorted !== 'boolean') {
+        throw(`Expected sort parameter as boolean, received ${typeof sorted}`);
       }
 
       if(!this.isPrefix(strPrefix)) {
@@ -87,7 +91,7 @@ export default function(input) {
 
       const { prefixNode } = checkPrefix(trie, strPrefix);
 
-      return recursePrefix(prefixNode, strPrefix);
+      return recursePrefix(prefixNode, strPrefix, sorted);
     },
 
     /**
@@ -104,8 +108,11 @@ export default function(input) {
     * Get all words in the trie
     * @returns Array
     */
-    getWords() {
-      return recursePrefix(trie, '');
+    getWords(sorted = true) {
+      if(typeof sorted !== 'boolean') {
+        throw(`Expected sort parameter as boolean, received ${typeof sorted}`);
+      }
+      return recursePrefix(trie, '', sorted);
     },
 
     /**

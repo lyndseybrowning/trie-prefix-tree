@@ -17,15 +17,19 @@ const pushInOrder = function(word, prefixes) {
   return prefixes;
 };
 
-export default function recursePrefix(node, prefix, prefixes = []) {
+export default function recursePrefix(node, prefix, sorted, prefixes = []) {
   let word = prefix;
 
   for(const branch in node) {
     if(branch === config.END_WORD) {
-      pushInOrder(word, prefixes);
+      if(sorted) {
+        pushInOrder(word, prefixes);
+      } else {
+        prefixes.push(word);
+      }
       word = '';
     }
-    recursePrefix(node[branch], prefix + branch, prefixes);
+    recursePrefix(node[branch], prefix + branch, sorted, prefixes);
   }
 
   return prefixes;
