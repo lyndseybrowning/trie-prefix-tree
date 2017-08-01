@@ -114,13 +114,25 @@ myTrie.countPrefix('c'); // 2
 ```javascript
 // get an array of words with the passed in prefix
 myTrie.getPrefix('c'); // ['cat', 'cats']
+
+// Pass false as the second parameter to disable 
+// output being sorted alphabetically
+// this is useful when your dictionary is already sorted
+// and will therefore save performance
+myTrie.getPrefix('c', false); // ['cat', 'cats']
 ```
 
 Other:
 
 ```javascript
 // retrieve a full list of words in the Trie
-myTrie.getWords(); // ['cat', 'cats', 'elephant', 'lion', 'tiger'];
+// the output array is automatically sorted
+myTrie.getWords(); // ['cat', 'cats', 'elephant', 'lion', 'tiger']
+
+// pass false to disable the output being sorted
+// this is useful when your dictionary is already sorted
+// and will therefore save performance
+myTrie.getWords(false); // ['cat', 'cats', 'elephant', 'tiger', 'lion']
 ```
 
 ```javascript
