@@ -137,7 +137,7 @@ myTrie.getWords(false); // ['cat', 'cats', 'elephant', 'tiger', 'lion']
 
 ```javascript
 // check if a word exists in the Trie
-myTrie.hasword('elephant'); // true
+myTrie.hasWord('elephant'); // true
 myTrie.hasWord('zoo'); // false
 ```
 
