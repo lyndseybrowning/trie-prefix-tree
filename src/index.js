@@ -17,6 +17,13 @@ export default function(input) {
 
   return {
     /**
+     * Get the generated raw trie object
+    */
+    tree() {
+      return trie;
+    },
+    
+    /**
      * Get a string representation of the trie
     */
     dump(spacer = 0) {
