@@ -55,3 +55,31 @@ describe('Retrieving the Trie', () => {
     expect(actual).toEqual(expected);
   });
 });
+
+describe('Retrieving the RAW Trie tree', () => {
+  it('returns the raw trie object structure', () => {
+    const input = ['dog', 'dogs', 'donut'];
+    const actual = JSON.stringify(trie(input).tree());
+    const expected = JSON.stringify({
+      d: {
+        o: {
+          g: {
+            $: 1,
+            s: {
+              $: 1
+            }
+          },
+          n: {
+            u: {
+              t: {
+                $: 1
+              }
+            }
+          }
+        }
+      }
+    });
+
+    expect(actual).toEqual(expected);
+  });
+});
