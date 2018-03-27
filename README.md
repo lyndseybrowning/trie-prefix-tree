@@ -83,6 +83,11 @@ myTrie.dump(2); // equivalent of JSON.stringify(obj, null, 2);
 ```
 
 ```javascript
+// retrieve the Trie object instance
+myTrie.tree();
+```
+
+```javascript
 // add a new word to the Trie
 myTrie.addWord('lion');
 ```
