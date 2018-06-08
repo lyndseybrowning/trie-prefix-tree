@@ -3,7 +3,7 @@
   "version": "0.0.0-development",
   "description": "Create and modify trie prefix structures, extract word lists including anagrams and sub-anagrams",
   "main": "dist/index.js",
-  "types": "./trie.d.ts",
+  "types": "./trie-prefix-tree.d.ts",
   "scripts": {
     "build": "babel --out-dir dist src",
     "prebuild": "rimraf dist",
