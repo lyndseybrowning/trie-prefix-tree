@@ -97,12 +97,9 @@ export default function(input) {
         return [];
       }
 
-      let prefixNode;
-      if(strPrefix.length) {
-        prefixNode = checkPrefix(trie, strPrefix).prefixNode;
-      } else {
-        prefixNode = trie;
-      }
+      const prefixNode = strPrefix.length ?
+        checkPrefix(trie, strPrefix).prefixNode
+        : trie;
 
       return recursePrefix(prefixNode, strPrefix, sorted);
     },
