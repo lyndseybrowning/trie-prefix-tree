@@ -127,6 +127,12 @@ myTrie.getPrefix('c'); // ['cat', 'cats']
 myTrie.getPrefix('c', false); // ['cat', 'cats']
 ```
 
+```javascript
+// get a random word at a prefix
+myTrie.getRandomWordWithPrefix('c'); // 'cat'
+myTrie.getRandomWordWithPrefix('c'); // 'cats'
+```
+
 Other:
 
 ```javascript

@@ -2,6 +2,7 @@ import create from './create';
 import append from './append';
 import checkPrefix from './checkPrefix';
 import recursePrefix from './recursePrefix';
+import recurseRandomWord from './recurseRandomWord';
 import utils from './utils';
 import config from './config';
 import permutations from './permutations';
@@ -70,7 +71,7 @@ export default function(input) {
      * @returns Boolean
     */
     isPrefix(prefix) {
-      if(typeof prefix !== 'string' || prefix === '') {
+      if(typeof prefix !== 'string') {
         throw(`Expected string prefix, received ${typeof prefix}`);
       }
 
@@ -84,7 +85,7 @@ export default function(input) {
     * @returns Array
     */
     getPrefix(strPrefix, sorted = true) {
-      if(typeof strPrefix !== 'string' || strPrefix === '') {
+      if(typeof strPrefix !== 'string') {
         throw(`Expected string prefix, received ${typeof strPrefix}`);
       }
 
@@ -96,9 +97,29 @@ export default function(input) {
         return [];
       }
 
-      const { prefixNode } = checkPrefix(trie, strPrefix);
+      const prefixNode = strPrefix.length ?
+        checkPrefix(trie, strPrefix).prefixNode
+        : trie;
 
       return recursePrefix(prefixNode, strPrefix, sorted);
+    },
+
+    /**
+    * Get a random word in the trie with the given prefix
+    * @returns Array
+    */
+    getRandomWordWithPrefix(strPrefix) {
+      if(typeof strPrefix !== 'string') {
+        throw(`Expected string prefix, received ${typeof strPrefix}`);
+      }
+
+      if(!this.isPrefix(strPrefix)) {
+        return '';
+      }
+
+      const { prefixNode } = checkPrefix(trie, strPrefix);
+
+      return recurseRandomWord(prefixNode, strPrefix);
     },
 
     /**
@@ -116,10 +137,7 @@ export default function(input) {
     * @returns Array
     */
     getWords(sorted = true) {
-      if(typeof sorted !== 'boolean') {
-        throw(`Expected sort parameter as boolean, received ${typeof sorted}`);
-      }
-      return recursePrefix(trie, '', sorted);
+      return this.getPrefix('', sorted);
     },
 
     /**

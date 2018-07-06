@@ -1,10 +1,15 @@
 import trie from '../src/index';
 
-const input = trie(['aah', 'aahs', 'aardvark', 'aalii', 'aal', 'baa', 'baal']);
+const words = ['aah', 'aahs', 'aardvark', 'aalii', 'aal', 'baa', 'baal'];
+const input = trie(words);
 
 describe('Getting prefixes', () => {
   it('throws an error when the first parameter is not a string', () => {
     expect(() => input.getPrefix()).toThrow();
+  });
+
+  it('returns all words with a zero-length prefix', () => {
+    expect(input.getPrefix('').length).toEqual(words.length);
   });
 
   it('errors when the sort parameter is not boolean', () => {
@@ -28,5 +33,6 @@ test('Counting prefixes', () => {
   expect(() => input.countPrefix()).toThrow();
   expect(input.countPrefix('a')).toEqual(5);
   expect(input.countPrefix('ba')).toEqual(2);
+  expect(input.countPrefix('baal')).toEqual(1);
   expect(input.countPrefix('dog')).toEqual(0);
 });
