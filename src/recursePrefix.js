@@ -21,19 +21,16 @@ export default function recursePrefix(node, prefix, sorted, prefixes = []) {
   let word = prefix;
 
   for(const branch in node) {
-    let currentLetter = branch;
-    if(branch === config.END_WORD && typeof node[branch] === 'number') {
+    if(branch === config.END_WORD) {
       if(sorted) {
         pushInOrder(word, prefixes);
       } else {
         prefixes.push(word);
       }
       word = '';
-    } else if(branch === config.END_WORD_REPLACER) {
-      currentLetter = config.END_WORD;
     }
-    recursePrefix(node[branch], prefix + currentLetter, sorted, prefixes);
+    recursePrefix(node[branch], prefix + branch, sorted, prefixes);
   }
 
   return prefixes;
-}
+};
