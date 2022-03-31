@@ -9,12 +9,12 @@ import permutations from './permutations';
 
 const PERMS_MIN_LEN = config.PERMS_MIN_LEN;
 
-export default function(input) {
+export default function(input, caseSensitive = false) {
   if(!Array.isArray(input)) {
     throw(`Expected parameter Array, received ${typeof input}`);
   }
 
-  const trie = create([...input]);
+  const trie = create([...input], caseSensitive);
 
   return {
     /**
@@ -23,7 +23,7 @@ export default function(input) {
     tree() {
       return trie;
     },
-    
+
     /**
      * Get a string representation of the trie
     */
@@ -43,7 +43,9 @@ export default function(input) {
         return append(...params);
       };
 
-      const input = word.toLowerCase().split('');
+      const input = caseSensitive
+            ? word.split('')
+            : word.toLowerCase().split('');
       input.reduce(reducer, trie);
 
       return this;
@@ -57,7 +59,8 @@ export default function(input) {
         throw(`Expected parameter string, received ${typeof word}`);
       }
 
-      const { prefixFound, prefixNode } = checkPrefix(trie, word);
+      const { prefixFound, prefixNode } =
+        checkPrefix(trie, word, caseSensitive);
 
       if(prefixFound) {
         delete prefixNode[config.END_WORD];
@@ -75,7 +78,7 @@ export default function(input) {
         throw(`Expected string prefix, received ${typeof prefix}`);
       }
 
-      const { prefixFound } = checkPrefix(trie, prefix);
+      const { prefixFound } = checkPrefix(trie, prefix, caseSensitive);
 
       return prefixFound;
     },
@@ -98,7 +101,7 @@ export default function(input) {
       }
 
       const prefixNode = strPrefix.length ?
-        checkPrefix(trie, strPrefix).prefixNode
+        checkPrefix(trie, strPrefix, caseSensitive).prefixNode
         : trie;
 
       return recursePrefix(prefixNode, strPrefix, sorted);
@@ -117,7 +120,7 @@ export default function(input) {
         return '';
       }
 
-      const { prefixNode } = checkPrefix(trie, strPrefix);
+      const { prefixNode } = checkPrefix(trie, strPrefix, caseSensitive);
 
       return recurseRandomWord(prefixNode, strPrefix);
     },
@@ -149,7 +152,8 @@ export default function(input) {
         throw(`Expected string word, received ${typeof word}`);
       }
 
-      const { prefixFound, prefixNode } = checkPrefix(trie, word);
+      const { prefixFound, prefixNode } =
+        checkPrefix(trie, word, caseSensitive);
 
       if(prefixFound) {
         return prefixNode[config.END_WORD] === 1;
