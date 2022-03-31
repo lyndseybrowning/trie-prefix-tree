@@ -60,7 +60,7 @@ export default function(input) {
       const { prefixFound, prefixNode } = checkPrefix(trie, word);
 
       if(prefixFound) {
-        delete prefixNode[config.END_WORD];
+        prefixNode.delete(config.END_WORD);
       }
 
       return this;
@@ -152,7 +152,7 @@ export default function(input) {
       const { prefixFound, prefixNode } = checkPrefix(trie, word);
 
       if(prefixFound) {
-        return prefixNode[config.END_WORD] === 1;
+        return prefixNode.get(config.END_WORD) === 1;
       }
 
       return false;

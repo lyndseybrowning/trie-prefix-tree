@@ -1,4 +1,5 @@
 import trie from '../src/index';
+import utils from '../src/utils';
 
 describe('Trie', () => {
   it('throws an error when the first argument specified is not an array', () => {
@@ -59,7 +60,7 @@ describe('Retrieving the Trie', () => {
 describe('Retrieving the RAW Trie tree', () => {
   it('returns the raw trie object structure', () => {
     const input = ['dog', 'dogs', 'donut'];
-    const actual = JSON.stringify(trie(input).tree());
+    const actual = utils.stringify(trie(input).tree(), 0);
     const expected = JSON.stringify({
       d: {
         o: {
