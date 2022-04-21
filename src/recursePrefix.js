@@ -20,9 +20,9 @@ const pushInOrder = function(word, prefixes) {
 export default function recursePrefix(node, prefix, sorted, prefixes = []) {
   let word = prefix;
 
-  for(const branch in node) {
+  for(const branch of node.keys()) {
     let currentLetter = branch;
-    if(branch === config.END_WORD && typeof node[branch] === 'number') {
+    if(branch === config.END_WORD && typeof node.get(branch) === 'number') {
       if(sorted) {
         pushInOrder(word, prefixes);
       } else {
@@ -32,7 +32,9 @@ export default function recursePrefix(node, prefix, sorted, prefixes = []) {
     } else if(branch === config.END_WORD_REPLACER) {
       currentLetter = config.END_WORD;
     }
-    recursePrefix(node[branch], prefix + currentLetter, sorted, prefixes);
+    if(node.get(branch) instanceof Map) {
+      recursePrefix(node.get(branch), prefix + currentLetter, sorted, prefixes);
+    }
   }
 
   return prefixes;

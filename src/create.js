@@ -12,7 +12,7 @@ export default function create(input) {
       .reduce(append, accumulator);
 
     return accumulator;
-  }, {});
+  }, new Map());
 
   return trie;
 };
