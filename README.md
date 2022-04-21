@@ -69,7 +69,11 @@ import trie from 'trie-prefix-tree';
 Instantiate the Trie:
 
 ```javascript
+// create Trie
 var myTrie = trie(['cat', 'cats', 'dogs', 'elephant', 'tiger']);
+
+// create Trie with case-sensitive
+var myTrieWithCaseSensitive = trie(['cat', 'cats', 'dogs', 'elephant', 'tiger'], true);
 ```
 
 Trie functionality:
