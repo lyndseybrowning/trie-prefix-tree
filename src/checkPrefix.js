@@ -5,10 +5,10 @@ export default function checkPrefix(prefixNode, prefix, caseSensitive) {
             ? prefix.split('')
             : prefix.toLowerCase().split('');
   const prefixFound = input.every((letter, index) => {
-    if(!prefixNode[letter]) {
+    if(!prefixNode.get(letter)) {
       return false;
     }
-    return prefixNode = prefixNode[letter];
+    return prefixNode = prefixNode.get(letter);
   });
 
   return {

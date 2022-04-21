@@ -1,4 +1,5 @@
 import create from '../src/create';
+import utils from '../src/utils';
 
 describe('Creating the Trie', () => {
   it('throws when the first argument is not an array', () => {
@@ -14,8 +15,8 @@ describe('Creating the Trie', () => {
 
   it('returns a Trie object structure converted to lowercase', () => {
     const input = ['Dog'];
-    const data = create(input);
-    const expected = {
+    const data = utils.stringify(create(input), 0);
+    const expected = JSON.stringify({
       d: {
         o: {
           g: {
@@ -23,7 +24,7 @@ describe('Creating the Trie', () => {
           }
         }
       }
-    };
+    });
 
     expect(data).toEqual(expected);
   });

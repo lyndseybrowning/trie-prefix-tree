@@ -18,7 +18,7 @@ export default function create(input, caseSensitive) {
       .reduce(append, accumulator);
 
     return accumulator;
-  }, {});
+  }, new Map());
 
   return trie;
 };

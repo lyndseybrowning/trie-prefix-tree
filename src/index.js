@@ -63,7 +63,7 @@ export default function(input, caseSensitive = false) {
         checkPrefix(trie, word, caseSensitive);
 
       if(prefixFound) {
-        delete prefixNode[config.END_WORD];
+        prefixNode.delete(config.END_WORD);
       }
 
       return this;
@@ -156,7 +156,7 @@ export default function(input, caseSensitive = false) {
         checkPrefix(trie, word, caseSensitive);
 
       if(prefixFound) {
-        return prefixNode[config.END_WORD] === 1;
+        return prefixNode.get(config.END_WORD) === 1;
       }
 
       return false;
